@@ -1,0 +1,12 @@
+=== Model Evaluation Metrics (Test Set 2019-2020) ===
+R-squared (R2) Score   : 0.8042 (80.42%)
+Root Mean Squared Error: 200.26 cases
+Mean Absolute Error    : 81.56 cases
+
+=== Selected Features ===
+1. Value_lag1
+2. precipitation_hours (h)_lag1
+3. precipitation_sum (mm)_lag1
+4. temperature_2m_mean (°C)_lag1
+5. City
+6. Month

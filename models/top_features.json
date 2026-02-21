@@ -1,0 +1,88 @@
+{
+    "feature_names": [
+        "Value_lag1",
+        "precipitation_hours (h)_lag1",
+        "precipitation_sum (mm)_lag1",
+        "temperature_2m_mean (\u00b0C)_lag1",
+        "City_Ampara",
+        "City_Anuradhapura",
+        "City_Badulla",
+        "City_Batticaloa",
+        "City_Colombo",
+        "City_Galle",
+        "City_Gampaha",
+        "City_Hambantota",
+        "City_Jaffna",
+        "City_Kalutara",
+        "City_Kandy",
+        "City_Kegalle",
+        "City_Kilinochchi[1]",
+        "City_Kurunegala",
+        "City_Mannar",
+        "City_Matale",
+        "City_Matara",
+        "City_Moneragala",
+        "City_Mullaitivu",
+        "City_Nuwara Eliya",
+        "City_Polonnaruwa",
+        "City_Puttalam",
+        "City_Ratnapura",
+        "City_Trincomalee",
+        "City_Vavuniya",
+        "Month_1",
+        "Month_2",
+        "Month_3",
+        "Month_4",
+        "Month_5",
+        "Month_6",
+        "Month_7",
+        "Month_8",
+        "Month_9",
+        "Month_10",
+        "Month_11",
+        "Month_12"
+    ],
+    "numerical_cols": [
+        "Value_lag1",
+        "precipitation_hours (h)_lag1",
+        "precipitation_sum (mm)_lag1",
+        "temperature_2m_mean (\u00b0C)_lag1"
+    ],
+    "categorical_cols": [
+        "City",
+        "Month"
+    ],
+    "metrics": {
+        "R2": 0.8042,
+        "RMSE": 200.26,
+        "MAE": 81.56
+    },
+    "feature_importances": {
+        "Value_lag1": 1.2398535122340395,
+        "precipitation_sum (mm)_lag1": 0.06808225365738035,
+        "temperature_2m_mean (\u00b0C)_lag1": 0.05226164299778312,
+        "City_Colombo": 0.040683581396851874,
+        "Month_7": 0.036821076567689036,
+        "Month_6": 0.026044528184298765,
+        "precipitation_hours (h)_lag1": 0.015366044314580041,
+        "Month_9": 0.01352779439568278,
+        "City_Gampaha": 0.00880566359617263,
+        "Month_11": 0.008434224181528883
+    },
+    "model_info": {
+        "training_rows": 2375,
+        "total_rows": 3275,
+        "datasets": [
+            {
+                "name_en": "Sri Lanka Dengue Cases (2010-2020)",
+                "name_si": "\u0dc1\u0dca\u200d\u0dbb\u0dd3 \u0dbd\u0d82\u0d9a\u0dcf\u0dc0\u0dda \u0da9\u0dd9\u0d82\u0d9c\u0dd4 \u0dbb\u0ddd\u0d9c\u0dd3\u0db1\u0dca\u0d9c\u0dda \u0daf\u0dad\u0dca\u0dad (2010-2020)",
+                "url": "https://www.kaggle.com/datasets/sadaruwan/sri-lanka-dengue-cases-2010-2020"
+            },
+            {
+                "name_en": "Sri Lanka Weather Dataset",
+                "name_si": "\u0dc1\u0dca\u200d\u0dbb\u0dd3 \u0dbd\u0d82\u0d9a\u0dcf\u0dc0\u0dda \u0d9a\u0dcf\u0dbd\u0d9c\u0dd4\u0dab \u0daf\u0dad\u0dca\u0dad",
+                "url": "https://www.kaggle.com/datasets/rasulmah/sri-lanka-weather-dataset"
+            }
+        ]
+    }
+}
