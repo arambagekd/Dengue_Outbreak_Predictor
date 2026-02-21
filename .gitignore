@@ -1,5 +1,7 @@
 __pycache__/
 *.pyc
+# Models are needed for deployment
+!models/*.pkl
 .env
 data/raw/*
 !data/raw/.gitkeep

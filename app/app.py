@@ -281,6 +281,11 @@ body, .stApp {
 h1, h2, h3, p, span, div, label {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
 }
+/* Hide Streamlit branding and toolbars */
+[data-testid="stHeader"], [data-testid="stToolbar"], #MainMenu, footer {
+    visibility: hidden;
+    height: 0%;
+}
 .hero-title {
     font-size: 4rem;
     font-weight: 900;

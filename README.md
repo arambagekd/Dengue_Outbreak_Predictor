@@ -21,7 +21,7 @@ ML/
 │   ├── evaluation/     ← metrics.py
 │   ├── explainability/ ← shap_analysis.py
 │   └── utils/          ← helpers.py
-├── models/saved/       ← Trained model artifacts (.pkl)
+├── models/             ← Trained model artifacts (.pkl)
 ├── reports/figures/    ← Generated plots and graphs
 ├── app/                ← Streamlit web application
 ├── tests/              ← Unit tests
