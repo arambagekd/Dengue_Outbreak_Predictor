@@ -1,0 +1,36 @@
+[project]
+name = "dengue-outbreak-predictor"
+version = "1.0.0"
+description = "A machine learning application to forecast monthly dengue cases across Sri Lanka using historical weather data."
+authors = [
+    { name = "Kavindu Dilshan Arambage" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+# Standardizing dependencies exactly as they were in the environment
+dependencies = [
+    # Core Data & ML
+    "numpy==2.2.6",
+    "pandas==2.3.3",
+    "scikit-learn==1.8.0",
+    
+    # Web Framework
+    "streamlit==1.54.0",
+    
+    # Visualization
+    "matplotlib==3.10.3",
+    "seaborn==0.13.2",
+    
+    # Utilities & File Handling
+    "joblib==1.5.3",
+    "openpyxl==3.1.5",
+    "PyYAML==6.0.3",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["src"]

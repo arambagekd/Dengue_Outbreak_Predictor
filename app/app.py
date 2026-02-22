@@ -275,16 +275,21 @@ body, .stApp {
 [data-testid="stAppViewContainer"] {
     background: transparent;
 }
-[data-testid="stHeader"] {
-    background-color: transparent;
+
+/* Hide Streamlit Default Elements (Header, Footer, Menu) */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Eliminate top margin/padding */
+.block-container {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+    margin-top: 0rem !important;
 }
+
 h1, h2, h3, p, span, div, label {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
-}
-/* Hide Streamlit branding and toolbars */
-[data-testid="stHeader"], [data-testid="stToolbar"], #MainMenu, footer {
-    visibility: hidden;
-    height: 0%;
 }
 .hero-title {
     font-size: 4rem;
@@ -614,7 +619,7 @@ elif st.session_state.page == 'model':
                     if pred_val < 50:
                         risk_level = t['risk_low']
                         color = "#4ade80" # Green
-                    elif pred_val < 150:
+                    elif pred_val <= 250:
                         risk_level = t['risk_med']
                         color = "#facc15" # Yellow
                     else:

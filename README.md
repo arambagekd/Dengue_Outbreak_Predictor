@@ -1,90 +1,66 @@
-# Dengue Outbreak Prediction — ML Assignment
+# Dengue Outbreak Predictor
 
-## MSc in Artificial Intelligence
+A machine learning application designed to forecast monthly dengue cases across Sri Lankan districts using historical dengue case records and weather data (temperature, precipitation, wind).
 
-A machine learning project to predict monthly dengue case counts across Sri Lanka using historical weather and location data.
-
----
+**Live Application:** [Dengue Outbreak Predictor (Live App)](https://dengueoutbreakpredictor.streamlit.app/)
 
 ## Project Structure
 
-```
+```text
 ML/
+├── app/                  # Streamlit web application frontend
+│   └── app.py
 ├── data/
-│   ├── raw/            ← Original datasets (dengue, weather, location)
-│   ├── processed/      ← Cleaned & merged data (auto-generated)
-│   └── external/       ← Any additional data
-├── notebooks/          ← Step-by-step Jupyter notebooks
-├── src/
-│   ├── data/           ← preprocessing.py
-│   ├── models/         ← train.py, predict.py
-│   ├── evaluation/     ← metrics.py
-│   ├── explainability/ ← shap_analysis.py
-│   └── utils/          ← helpers.py
-├── models/             ← Trained model artifacts (.pkl)
-├── reports/figures/    ← Generated plots and graphs
-├── app/                ← Streamlit web application
-├── tests/              ← Unit tests
-├── .streamlit/         ← Cloud configuration
-├── requirements.txt    ← Dependencies
-└── README.md           ← This file
+│   ├── raw/              # Original raw datasets (dengue, weather, location)
+│   └── processed/        # Cleaned and integrated datasets
+├── models/               # Saved trained model artifacts and configuration files
+├── reports/              # Generated visualizations and analysis
+│   └── figures/
+├── src/                  # Source code for data pipelines and modeling
+│   ├── data/             # Scripts for preprocessing and feature engineering
+│   ├── models/           # Scripts for model training and prediction
+│   └── utils/            # Helper functions
+pyproject.toml            # Modern Python dependencies and project configuration
 ```
 
----
+## Quick Start (Local Setup)
 
-## Deployment (Free)
+### 1. Install Dependencies
 
-This application is optimized for deployment on **Streamlit Community Cloud**.
-
-1. **GitHub**: Push this repository to GitHub.
-2. **Deploy**: Link your repository to [Streamlit Cloud](https://share.streamlit.io/).
-3. **Guide**: See the [Deployment Guide](file:///C:/Users/Arambage%20K%20D/.gemini/antigravity/brain/bd3cadc3-f5eb-4b76-920e-d0cec9db9f62/deployment_guide.md) for step-by-step instructions.
-
----
-
-## Quick Start
-
-### 1. Install dependencies
+Ensure you have Python 3.8+ installed. Since this project uses a standard `pyproject.toml`, you can install all dependencies cleanly by running:
 
 ```bash
-pip install -r requirements.txt
+pip install .
 ```
 
-### 2. Run the full pipeline
+### 2. Preprocess the Data
+
+Clean the raw datasets, aggregate weather metrics to a monthly level, and engineer the 1-month lag features to prevent data leakage:
 
 ```bash
-# Step 1: Preprocess data
-python src/data/preprocessing.py
+python src/data/preprocess.py
+```
 
-# Step 2: Train the model
+### 3. Train the Model
+
+Train the `HistGradientBoostingRegressor` model, perform hyperparameter tuning, and generate explainability plots (stored in `reports/figures/`):
+
+```bash
 python src/models/train.py
+```
 
-# Step 3: Launch the web app
+### 4. Run the Web Application
+
+Launch the Streamlit dashboard locally:
+
+```bash
 streamlit run app/app.py
 ```
 
-### 3. Or use Jupyter Notebooks
+_The app will automatically open in your default browser at `http://localhost:8501`._
 
-Open notebooks in order: `01` → `02` → `03` → `04` → `05`
+## Methodology
 
----
-
-## Algorithm
-
-**HistGradientBoostingRegressor** (scikit-learn)  
-A modern histogram-based gradient boosting regressor — faster than standard GBM, handles missing values natively, and outperforms Decision Trees, KNN, and Logistic Regression on tabular data.
-
----
-
-## XAI Methods Used
-
-- **Permutation Feature Importance** — which features reduce accuracy most when shuffled
-- **Partial Dependence Plots (PDP)** — marginal effect of each weather feature on predictions
-
----
-
-## Dataset
-
-- `Dengue_Data (2010-2020).xlsx` — Monthly dengue case counts per district
-- `weatherData.csv` — Daily weather observations per location (2010–2020)
-- `locationData.csv` — City/district metadata with location IDs
+- **Target Transformation:** Outbreak spikes are heavily right-skewed. The model uses a `Log1p` transformation to stabilize the variance.
+- **Explainable AI (XAI):** Permutation Feature Importance and Partial Dependence Plots (PDP) are used to interpret the model, confirming that previous case counts (`lag1`) and rainfall are the strongest predictors.
+- **Algorithm:** `HistGradientBoostingRegressor` (from `scikit-learn`) was chosen for its capability to model complex non-linear weather interactions and natively handle missing values.
