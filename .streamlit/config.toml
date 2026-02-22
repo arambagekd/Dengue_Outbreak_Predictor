@@ -10,7 +10,3 @@ font="sans serif"
 # Hides the Streamlit toolbar ("hamburger menu", deploy button, etc.)
 toolbarMode = "minimal"
 showErrorDetails = false
-
-[server]
-# Whether to show the colorful "Made with Streamlit" footer
-hide_footer = true
