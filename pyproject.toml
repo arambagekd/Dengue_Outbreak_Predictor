@@ -6,7 +6,7 @@ authors = [
     { name = "Kavindu Dilshan Arambage" }
 ]
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 
 # Standardizing dependencies exactly as they were in the environment
 dependencies = [
